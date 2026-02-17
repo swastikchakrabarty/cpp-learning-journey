@@ -1,0 +1,37 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build for Linux",
+            "type": "cppbuild",
+            "command": "/usr/bin/g++",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}"
+            ],
+            "group": "build",
+            "detail": "Standard Linux G++ build"
+        },
+        {
+            "label": "Build for Windows (MinGW)",
+            "type": "cppbuild",
+            "command": "/usr/bin/x86_64-w64-mingw32-g++",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}.exe",
+                "-static",
+                "-static-libgcc",
+                "-static-libstdc++",
+                "-lpthread"
+            ],
+            "group": "build",
+            "detail": "Cross-compile for Windows with static linking"
+        }
+    ]
+}
